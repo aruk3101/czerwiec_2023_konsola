@@ -6,10 +6,31 @@
         {
             int[] randomNumbers = GenerateRandomNumbers(100);
 
+            Console.WriteLine("Tablica przed sortowaniem:");
+            Console.WriteLine(string.Join(", ", randomNumbers));
+
             BubbleSort(randomNumbers);
 
-            Console.WriteLine("Tablica po sortowaniu:");
+            Console.WriteLine("\nTablica po sortowaniu:");
             Console.WriteLine(string.Join(", ", randomNumbers));
+
+            bool test = true;
+            for(int i = 0; i < randomNumbers.Length-1; i++)
+            {
+                if (randomNumbers[i] > randomNumbers[i + 1])
+                {
+                    test = false;
+                    break;
+                }
+            }
+            if (test == true)
+            {
+                Console.WriteLine("\nTest zdany");
+            }
+            else
+            {
+                Console.WriteLine("\nTest niezdany");
+            }
         }
 
         static int[] GenerateRandomNumbers(int size)
@@ -19,7 +40,7 @@
 
             for (int i = 0; i < size; i++)
             {
-                numbers[i] = random.Next(1, 101);
+                numbers[i] = random.Next(1, 1001);
             }
 
             return numbers;
